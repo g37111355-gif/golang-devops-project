@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web-app
+  namespace: go-web-app
+  labels:
+    app: go-app
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: go-app
+  template:
+    metadata:
+      labels:
+        app: go-app
+    spec:
+      containers:
+      - name: go-app
+        image: mithu111/devops:{{.Values.image.tag }}
+        ports:
+        - containerPort: 8000
+        

@@ -1,0 +1,11 @@
+apiVersion: networkingk8s.io/v1
+kind: Ingress
+metadata:
+  name: ngnix
+  namespace: go-web-app
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Perfix
+        path: /
